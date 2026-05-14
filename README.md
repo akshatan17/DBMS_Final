@@ -121,19 +121,20 @@ ipl_dbms/
 **Read `EXPLAIN.md`** — it has every concept, every query, every trigger
 explained line-by-line in viva-ready language.
 
----
+## Setup
 
-## Common problems
+1. Install dependencies:
+```bash
+   pip install -r requirements.txt
+```
 
-**"Access denied for user 'root'@'localhost'"** — wrong password in
-`DB_CONFIG`. Open MySQL Workbench and confirm what password works there,
-then paste that into `database.py`.
+2. Copy `.env.example` to `.env` and edit it with your MySQL credentials:
+```bash
+   cp .env.example .env
+```
+   Then open `.env` and replace `your_mysql_password_here` with your actual MySQL root password.
 
-**"Can't connect to MySQL server"** — the MySQL service isn't running.
-On Windows: open Services, find "MySQL" (or "MySQL80"), start it.
-On Mac: `brew services start mysql`.
-
-**"Unknown database 'ipl_db'"** — auto-create didn't fire. Run
-`CREATE DATABASE ipl_db;` manually in Workbench, then re-run Streamlit.
-
-🏏 Good luck.
+3. Run:
+```bash
+   streamlit run app.py
+```
